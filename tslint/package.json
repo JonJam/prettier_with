@@ -1,0 +1,26 @@
+{
+  "name": "tslint",
+  "version": "1.0.0",
+  "description": "How to integrate prettier with tslint",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^4.0.4",
+    "prettier": "^1.6.0",
+    "tslint": "^5.7.0",
+    "tslint-config-prettier": "^1.4.0",
+    "typescript": "^2.4.2"
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "lint-ts": "tslint -t verbose src/**/*.ts"
+  },
+  "lint-staged": {
+    "gitDir": "..",
+    "*.ts": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}

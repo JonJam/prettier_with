@@ -1,0 +1,22 @@
+{
+  "name": "prettier_with_stylelint",
+  "version": "1.0.0",
+  "description": "Demostration of integration prettier with stylelint",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^4.0.4",
+    "prettier": "^1.6.0",
+    "stylelint": "^8.0.0",
+    "stylelint-config-recommended": "^1.0.0"
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "lint-css": "stylelint src/**/*.css -f verbose --color"
+  },
+  "lint-staged": {
+    "gitDir": "..",
+    "*.css": ["prettier --write", "git add"]
+  }
+}
